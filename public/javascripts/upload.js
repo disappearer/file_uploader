@@ -29,8 +29,12 @@ $('#upload-input').on('change', function(){
 
           if (percentComplete == 100) {
             $('.progress-bar').html('Done')
-            $('.panel-body').append(
-              '<div class="uploaded">Uploaded file: ' + file.name + "</div>"
+            if(!$('#panel-footer').length){
+              $('.panel-body').append('<div id="panel-footer"></div>')
+            }
+            $('#panel-footer').append(
+              '<div>Uploaded file: ' + file.name + " (size: "
+              + file.size + ")</div>"
             )
           }
         }

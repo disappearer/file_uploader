@@ -56,8 +56,10 @@ h2 {
   display: none;
 }
 
-.uploaded {
+#panel-footer {
+  margin-top: 20px;
   text-align: left;
+  color: #aaa;
 }
 
 @media (min-width: 768px) {
