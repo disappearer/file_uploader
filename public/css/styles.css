@@ -42,14 +42,25 @@ h4 {
   color: #BCB3B9;
 }
 
-h2 {
+h2, h3 {
   margin-top: 15px;
   color: #68757E;
+}
+
+ul {
+  list-style: none;
+  color: #777;
 }
 
 .panel {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.uploaded-files {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #upload-input {
@@ -60,16 +71,4 @@ h2 {
   margin-top: 20px;
   text-align: left;
   color: #aaa;
-}
-
-@media (min-width: 768px) {
-  .main-container {
-    width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 500px;
-  }
 }

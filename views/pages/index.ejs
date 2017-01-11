@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>File Uploader</title>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
@@ -15,7 +15,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-6">
         <div class="panel panel-default">
           <div class="panel-body">
             <span class="glyphicon glyphicon-cloud-upload"></span>
@@ -28,10 +28,22 @@
           </div>
         </div>
       </div>
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="uploaded-files">
+            <h3>Previously Uploaded Files</h3>
+            <ul class="well">
+              <% files.forEach(function(file) { %>
+                <li><%= file.name %> ( size: <%= file.size %> )</li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <input id="upload-input" type="file" name="uploads[]"></br>
+  <input id="upload-input" type="file" name="uploads[]"><br>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -4,10 +4,21 @@ var path = require('path')
 var formidable = require('formidable')
 var fs = require('fs')
 
+app.set('view engine', 'ejs')
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname, 'views/index.html'))
+  fs.readdir('uploads', function(err,files){
+    if(err) return console.error(err)
+    var file_array = []
+    files.forEach(function(file){
+      var filepath = path.join(__dirname,'uploads',file)
+      var fsize = fs.statSync(filepath)['size']
+      file_array.push({name: file, size: fsize})
+    })
+    res.render('pages/index', {files: file_array})
+  })
 })
 
 app.post('/upload', function(req,res){
