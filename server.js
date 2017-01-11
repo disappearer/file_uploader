@@ -13,9 +13,11 @@ app.get('/', function(req,res){
     if(err) return console.error(err)
     var file_array = []
     files.forEach(function(file){
-      var filepath = path.join(__dirname,'uploads',file)
-      var fsize = fs.statSync(filepath)['size']
-      file_array.push({name: file, size: fsize})
+      if(!file.startsWith('.')){
+        var filepath = path.join(__dirname,'uploads',file)
+        var fsize = fs.statSync(filepath)['size']
+        file_array.push({name: file, size: fsize})
+      }
     })
     res.render('pages/index', {files: file_array})
   })
