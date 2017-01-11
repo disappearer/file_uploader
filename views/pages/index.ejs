@@ -33,9 +33,13 @@
           <div class="uploaded-files">
             <h3>Previously Uploaded Files</h3>
             <ul class="well">
-              <% files.forEach(function(file) { %>
-                <li><%= file.name %> ( size: <%= file.size %> )</li>
-              <% }) %>
+              <% if (files.length) { %>
+                <% files.forEach(function(file) { %>
+                  <li><%= file.name %> ( size: <%= file.size %> )</li>
+                <% }) %>
+              <% } else { %>
+                No files uploaded yet.
+              <% } %>
             </ul>
           </div>
         </div>
